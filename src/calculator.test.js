@@ -33,6 +33,14 @@ test("A number divided by zero returns Infinity.", () => {
   expect(calculator.divide(5, 0)).toBe(Infinity);
 });
 
+// Strings.
+test("It must return an error if the function takes strings as parameters.", () => {
+  expect(() => calculator.sum(2, "7")).toThrow("Error: Parameters are not a Number.")
+  expect(() => calculator.subtract("9", 4)).toThrow("Error: Parameters are not a Number.")
+  expect(() => calculator.multiply("a", -6)).toThrow("Error: Parameters are not a Number.")
+  expect(() => calculator.divide(0, "&")).toThrow("Error: Parameters are not a Number.")
+})
+
 // Missing parameters.
 test("It must return an error if the function lacks one or both parameters.", () => {
   // No parameters.
